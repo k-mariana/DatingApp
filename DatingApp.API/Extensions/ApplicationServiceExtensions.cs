@@ -2,6 +2,7 @@
 using DatingApp.API.Helpers;
 using DatingApp.API.Interfaces;
 using DatingApp.API.Services;
+using DatingApp.API.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Extensions;
@@ -31,6 +32,8 @@ public static class ApplicationServiceExtensions
   
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+        services.AddSignalR();
+        services.AddSingleton<PresenceTracker>();
 
         return services;
     }
