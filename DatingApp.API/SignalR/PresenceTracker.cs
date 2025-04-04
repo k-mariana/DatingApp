@@ -57,7 +57,7 @@ public class PresenceTracker
         {
             lock(connections)
             {
-                connectionIds = connections.ToList();
+                connectionIds = connections;
             }
         }
         else
